@@ -1,2 +1,3 @@
-# PHP-Developer-Parte02
-PHP Developer Parte 02
+# PHP Developer Parte02
+### Problema práctico
+Prototipo de aplicación web. 

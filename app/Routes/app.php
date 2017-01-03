@@ -7,8 +7,6 @@ $app->get('/employe/{id}', 'App\Controllers\EmployeesController:employeDetail');
 //Api Rest XML
 $app->get('/employees/api/{min_max}', 'App\Controllers\EmployeesController:xmlApi');
 
-// Demo Routes //
-require 'demo.php';
 
 // Example Routes //
 // require 'example.php';

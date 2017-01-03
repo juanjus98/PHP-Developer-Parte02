@@ -1,0 +1,43 @@
+<h2>Employees List.</h2>
+<hr>
+
+<div>
+	<form name="frm_search" id="frm_search" method="post" action="">
+	<table>
+		<tr>
+			<td>Email:</td>
+			<td><input type="email" name="email" id="email" value=""></td>
+			<td><button type="submit">Search</button></td>
+			<td><a href="employees">Restore</a></td>
+		</tr>
+	</table>
+	</form>
+</div>
+
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Position</th>
+			<th>Salary</th>
+			<th></th>
+		</tr>
+	</thead>	
+	<tbody>
+		{% for key,employe in employees %}
+		<tr>
+			<td>{{ employe.name }}</td>
+			<td>{{ employe.email }}</td>
+			<td>{{ employe.position }}</td>
+			<td>{{ employe.salary }}</td>
+			<td><a href="employe/{{ key }}">View details</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+<hr>
+
+<small>{{ "now"|date("Y-m-d H:i:s") }}</small>
+

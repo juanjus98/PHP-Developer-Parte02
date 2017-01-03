@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Employees>
+	{% for key,employe in employees %}
+	<Employe>
+		<name>{{ employe.name }}</name>
+		<email>{{ employe.email }}</email>
+		<phone>{{ employe.phone }}</phone>
+		<address>{{ employe.address }}</address>
+		<position>{{ employe.position }}</position>
+		<salary>{{ employe.salary }}</salary>
+		<skills>
+			{% for skill in employe['skills'] %}
+			{{ skill['skill'] }},
+			{% endfor %}
+		</skills>
+	</Employe>
+	{% endfor %}
+</Employees>

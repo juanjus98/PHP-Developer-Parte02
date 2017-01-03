@@ -1,0 +1,42 @@
+<h2>Employe details</h2>
+
+<hr>
+<table>
+	<tr>
+		<th>Name:</th>
+		<td>{{ employe['name'] }}</td>
+	</tr>
+	<tr>
+		<th>Email:</th>
+		<td>{{ employe['email'] }}</td>
+	</tr>
+	<tr>
+		<th>Phone:</th>
+		<td>{{ employe['phone'] }}</td>
+	</tr>
+	<tr>
+		<th>Address:</th>
+		<td>{{ employe['address'] }}</td>
+	</tr>
+	<tr>
+		<th>Position:</th>
+		<td>{{ employe['position'] }}</td>
+	</tr>
+	<tr>
+		<th>Salary:</th>
+		<td>{{ employe['salary'] }}</td>
+	</tr>
+	<tr>
+		<th>Skills:</th>
+		<td> 
+		{% for key,skill in employe['skills'] %}
+		{{ skill['skill'] }},
+		{% endfor %}
+		</td>
+	</tr>
+</table>
+
+<a href="../employees">Return to list</a>
+
+<hr>
+<small>{{ "now"|date("Y-m-d H:i:s") }}</small>

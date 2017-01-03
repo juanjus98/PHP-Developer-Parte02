@@ -2,14 +2,27 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-require 'vendor/autoload.php';
+use Slim\Views\PhpRenderer;
 
-$app = new \Slim\App;
-$app->get('/hello/{name}', function (Request $request, Response $response) {
-	$name = $request->getAttribute('name');
-	$response->getBody()->write("Hello, $name");
+require 'app/vendor/autoload.php';
 
-	return $response;
+// instantiate the App object
+$app = new \Slim\App();
+
+$container = $app->getContainer();
+$container['renderer'] = new PhpRenderer("./templates");
+
+// Add route callbacks
+$app->get('/', function ($request, $response, $args) {
+    return $response->withStatus(200)->write('Hello World!');
 });
 
+$app->get('/hello[/{name}]', function ($request, $response, $args) {
+    $response->write("Hello, " . $args['name']);
+    return $response;
+})->setArgument('name', 'World!');
+
+
+
+// Run application
 $app->run();
